@@ -2,13 +2,13 @@
 
 # Define UI ----
 # FROM WEBSITE - LIST OF WIDGETS
-# ui <- fluidPage(
+#  ui <- fluidPage(
 #   titlePanel("Basic widgets"),
-# 
-#   fluidRow(
-# 
+#  
+#    fluidRow(
+#  
 #     column(3,
-#            h3("Buttons"),
+#             h3("Buttons"),
 #            actionButton("action", "Action"),
 #            br(),
 #            br(),
@@ -76,7 +76,7 @@
 #                      value = "Enter text..."))
 #   )
 # )
-
+# 
 
 ################################################################################
 ################################################################################
@@ -210,7 +210,7 @@
 #           ),
 #           tabItem(tabName = 'page2-1',
 #                   HTML('<p style="font-size:18pt; color:blue;">Hello world</p>'),
-#                   mainPanel(                   
+#                   mainPanel(
 #                     fluidPage(
 #                       fluidRow(
 #                         h1('Page title')
@@ -323,23 +323,23 @@
 # bootswatch_themes()
 # https://bootswatch.com/
 
-# mytheme <- bs_theme(version = 5,
-#                     bootswatch = 'cosmo',
-#                     bg = '#000',
-#                     fg = '#FFF')
-# 
-#   ui <- navbarPage(title = 'Patent analytics',
-#                    theme = mytheme,
-#                    tabPanel(title = 'Home',
-# 
-#                             wellPanel(
-#                               p('Some text here')
-#                             )
-#                    ),
-#                    tabPanel(title = 'Charts',
-#                    )
-# 
-#   )
+mytheme <- bs_theme(version = 5,
+                    bootswatch = 'yeti',
+                    bg = '#FFF',
+                    fg = '#512888')
+
+  ui <- navbarPage(title = 'Patent Analytics',
+                   theme = mytheme,
+                   tabPanel(title = 'Home',
+
+                            wellPanel(
+                              p('Rett Was Here')
+                            )
+                   ),
+                   tabPanel(title = 'Charts',
+                   )
+
+  )
 
 
 
