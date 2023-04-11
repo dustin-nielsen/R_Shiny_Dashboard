@@ -5,6 +5,24 @@
 
 server <- function(input,output,session) {
   
+  # Define reactive values
+  competition <- reactiveValues(dt = data.frame(),plot = plotly_empty())
+  
+  # Observers
+  
+  observeEvent(input$generate_competitive_positioning,{
+    # Filter the cpc codes
+    dt <- cpc %>% filter(grepl(pattern = paste(input$market_cpcs_input,sep = '',collapse = '|'),x = cpc$cpc_group,ignore.case = T))
+    # merge with patents
+    dt <- merge(dt,patent,by = 'patent_id')
+    # merge with assignee
+    dt <- merge(dt,assignee,by = 'patent_id')
+    
+    competition$dt <- head(dt) #temp head(dt)
+    
+    output$competition_dt <- renderDataTable({competition$dt})
+  })
+  
   # Reactivity:
   # As a general rule, use reactive() when you just want to update something based on a new value (e.g. a user input)
   # and use reactiveVal or reactiveValues when you have an object that you want to maintain a state
