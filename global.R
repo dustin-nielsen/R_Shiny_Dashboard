@@ -4,6 +4,8 @@ library(shinythemes)
 library(shinydashboard)
 library(plotly)
 library(bslib)
+library(feather)
+library(DT)
 
 # Resources
 # https://shiny.rstudio.com/
