@@ -55,9 +55,5 @@ server <- function(input,output,session) {
   #   output$text_labels_output <- renderText({
   #     r_list$txt
   #   })
-  
-  # Add in a comment
-  
-  # Another test comment
 }
 
