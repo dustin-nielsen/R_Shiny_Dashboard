@@ -333,11 +333,19 @@ mytheme <- bs_theme(version = 5,
                    tabPanel(title = 'Home',
 
                             wellPanel(
-                              p('Rett Was Here')
+                              p('Rett Was Here'),
+                              column(3,
+                                     selectInput("select", h3("Select box"),
+                                     choices = cpc$patent_id)
+                                     )
                             )
                    ),
-                   tabPanel(title = 'Charts',
-                   )
+                   tabPanel(title = 'Competitive Analysis',
+                            p('Testing')
+                   ),
+                   tabPanel(title = 'Technology Trends',
+                            P('Another test...')
+                            )
 
   )
 
@@ -378,6 +386,3 @@ mytheme <- bs_theme(version = 5,
 #                  )
 # 
 # )
-
-
-# Test change
