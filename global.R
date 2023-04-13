@@ -18,8 +18,6 @@ library(DT)
 # # unique_cpc_group <- head(unique_cpc_group)
 # cpc <- head(cpc)
 
-#>>>>>>> f4e1fc6518bc44e1ad0f0020778c23af4e9d5972
-
 # Resources
 # https://shiny.rstudio.com/
 # https://shiny.rstudio.com/gallery/
