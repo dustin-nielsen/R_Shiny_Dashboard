@@ -9,7 +9,7 @@ library(feather)
 library(DT)
 
 # setwd("C:/GitHubProjects/Strat/R_Shiny_Dashboard")
-# load('data/unique_cpc_groups/unique_cpc_group.Rdata')
+# load('data/unique_cpc_group.Rdata')
 # assignee <- read_feather('data/g_assignee_disambiguated_2012_2021.feather')
 # location <- read_feather('data/g_location_disambiguated_2012_2021.feather')
 # patent <- read_feather('data/g_patent_2012_2021.feather')
