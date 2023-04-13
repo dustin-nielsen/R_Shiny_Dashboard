@@ -323,23 +323,62 @@
 # bootswatch_themes()
 # https://bootswatch.com/
 
-# mytheme <- bs_theme(version = 5,
-#                     bootswatch = 'cosmo',
-#                     bg = '#000',
-#                     fg = '#FFF')
-# 
-#   ui <- navbarPage(title = 'Patent analytics',
-#                    theme = mytheme,
-#                    tabPanel(title = 'Home',
-# 
-#                             wellPanel(
-#                               p('Some text here')
-#                             )
-#                    ),
-#                    tabPanel(title = 'Charts',
-#                    )
-# 
-#   )
+mytheme <- bs_theme(version = 5,
+                    bootswatch = 'cosmo',
+                    bg = '#000',
+                    fg = '#FFF')
+
+  ui <- navbarPage(title = 'Patent analytics',
+                   theme = mytheme,
+                   tabPanel(title = 'Home',
+                             titlePanel('Home'),
+                             sidebarLayout(
+                               sidebarPanel = sidebarPanel(width = 3,
+                                                           h4('Side bar')
+                                                           ),
+                               mainPanel = mainPanel(
+                                 tags$h4('Main bar')
+                               )
+                             )
+                             ),
+
+                    tabPanel(title = 'Competitive positioning',
+                             fluidPage(
+                               fluidRow(
+                                 HTML('<p style = "padding-left: 30px; font-size: 20px;"> Competitive Positioning </p>
+                                      <br>
+                                      <p style = "padding-left: 30px;"> This page analyzes the cop pasldf </p>')
+                               ),
+                               hr(),br(),
+                               column(width = 3,
+                                      h4('Inputs'),
+                                      wellPanel(
+                                        selectInput(inputId = 'market_cpcs_input',label = 'Market CPCs',choices = unique_cpc_group, multiple = TRUE),
+                                        #selectInput(inputId = 'submarket_cpcs_input',label = 'Submarket CPCs',choices = unique_cpc_group),
+                                        textAreaInput(inputId = 'submarket_labels_input',label = 'Submarket labels (comma separated'),
+                                        actionButton(inputId = 'generate_competitive_positioning',label = 'Generate',width = '35%')
+                                      )
+                                      ),
+                               column(width = 8, offset = 1,
+                                      h4('Outputs'),
+                                      textOutput(outputId = 'text_labels_output'),
+                                      DTOutput(outputId = 'competition_dt')
+                                      )
+                               )
+
+                             ),
+
+                    tabPanel(title = 'Technology trends',
+                             fluidPage(
+                               fluidRow(
+                                 
+                               )
+                             )
+
+
+                             )
+
+  )
 
 
 
