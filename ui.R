@@ -381,17 +381,14 @@ ui <- navbarPage(title = 'Patent Analytics',
                                      actionButton(inputId = 'generate_tech_trend',label = 'Generate',width = '75%')
                                    )
                             ),
-                            fluidRow(
-                              column(width = 8, offset = 1,
-                                h4('Outputs'),
-                                #textOutput(outputId = 'text_labels_output'),
-                                # Try putting a plotly output here
-                                #DTOutput(outputId = 'competition_dt')
+                            column(width = 8, offset = 1,
+                              h4('Outputs'),
+                              # Try putting a plotly output here
+                              #plotlyOutput(outputId = 'chart_tech_trends')
                             )
-                          )
                         )
                  )
-                 )
+    
 )
 
 
