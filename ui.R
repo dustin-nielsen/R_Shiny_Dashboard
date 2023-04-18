@@ -384,7 +384,7 @@ ui <- navbarPage(title = 'Patent Analytics',
                             column(width = 8, offset = 1,
                               h4('Outputs'),
                               # Try putting a plotly output here
-                              #plotlyOutput(outputId = 'chart_tech_trends')
+                              plotlyOutput(outputId = 'chart_tech_trends')
                             )
                         )
                  )

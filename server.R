@@ -30,6 +30,12 @@ server <- function(input,output,session) {
         #)
       )
     })
+  
+  observeEvent(input$generate_tech_trend,{  
+    output$chart_tech_trends <- renderPlotly({
+        plot_ly(competition$dt, x = ~patent_date, y = ~num_claims)
+    })
+  })
     
     # renderDT({
     #   datatable(data, 
@@ -38,6 +44,7 @@ server <- function(input,output,session) {
     #             )
     #   )
     # })
+  
   })
   
   # Reactivity:
