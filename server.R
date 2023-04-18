@@ -18,18 +18,18 @@ server <- function(input,output,session) {
     # merge with assignee
     dt <- merge(dt,assignee,by = 'patent_id')
     
-    competition$dt <- head(dt) #temp head(dt)
+    competition$dt <- dt #temp head(dt)
     
     output$competition_dt <- renderDT({
       datatable(
-        competition$dt, 
+        competition$dt,
         #colnames = colnames(competition$dt)[1:6,8,10,13]
         #select = c("patent_id","cpc_group","patent_date","patent_title","num_claims","disambig_assignee_organization", "disambig_assignee_individual_name_first", "disambig_assignee_individual_name_last")
-        # options = list(
-        #   columnDefs = list(list(targets = c(2, 3, 4, 5, 6, 7), searchable = FALSE))
-        #   )
-        )
-      })
+        #options = list(
+        #  columnDefs = list(list(targets = c(2, 3, 4, 5, 6, 7), searchable = FALSE))
+        #)
+      )
+    })
     
     # renderDT({
     #   datatable(data, 
@@ -91,4 +91,3 @@ server <- function(input,output,session) {
   #     r_list$txt
   #   })
 }
-

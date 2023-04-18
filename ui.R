@@ -4,9 +4,9 @@
 # FROM WEBSITE - LIST OF WIDGETS
 #  ui <- fluidPage(
 #   titlePanel("Basic widgets"),
-#  
+# 
 #    fluidRow(
-#  
+# 
 #     column(3,
 #             h3("Buttons"),
 #            actionButton("action", "Action"),
@@ -17,7 +17,7 @@
 #     column(3,
 #            h3("Single checkbox"),
 #            checkboxInput("checkbox", "Choice A", value = TRUE)),
-# 
+#
 #     column(3,
 #            checkboxGroupInput("checkGroup",
 #                               h3("Checkbox group"),
@@ -25,58 +25,58 @@
 #                                              "Choice 2" = 2,
 #                                              "Choice 3" = 3),
 #                               selected = 1)),
-# 
+#
 #     column(3,
 #            dateInput("date",
 #                      h3("Date input"),
 #                      value = "2014-01-01"))
 #   ),
-# 
+#
 #   fluidRow(
-# 
+#
 #     column(3,
 #            dateRangeInput("dates", h3("Date range"))),
-# 
+#
 #     column(3,
 #            fileInput("file", h3("File input"))),
-# 
+#
 #     column(3,
 #            h3("Help text"),
 #            helpText("Note: help text isn't a true widget,",
 #                     "but it provides an easy way to add text to",
 #                     "accompany other widgets.")),
-# 
+#
 #     column(3,
 #            numericInput("num",
 #                         h3("Numeric input"),
 #                         value = 1))
 #   ),
-# 
+#
 #   fluidRow(
-# 
+#
 #     column(3,
 #            radioButtons("radio", h3("Radio buttons"),
 #                         choices = list("Choice 1" = 1, "Choice 2" = 2,
 #                                        "Choice 3" = 3),selected = 1)),
-# 
+#
 #     column(3,
 #            selectInput("select", h3("Select box"),
 #                        choices = list("Choice 1" = 1, "Choice 2" = 2,
 #                                       "Choice 3" = 3), selected = 1)),
-# 
+#
 #     column(3,
 #            sliderInput("slider1", h3("Sliders"),
 #                        min = 0, max = 100, value = 50),
 #            sliderInput("slider2", "",
 #                        min = 0, max = 100, value = c(25, 75))
 #     ),
-# 
+#
 #     column(3,
 #            textInput("text", h3("Text input"),
 #                      value = "Enter text..."))
 #   )
 # )
-# 
+#
 
 ################################################################################
 ################################################################################
@@ -90,7 +90,7 @@
 # fluidpage
 
 # ui <- fluidPage(
-# 
+#
 #   fluidRow(
 #     h1('Page title')
 #   ),
@@ -116,7 +116,7 @@
 #                plotlyOutput(outputId = 'my_output')
 #              ))
 #   )
-# 
+#
 # )
 
 
@@ -329,45 +329,68 @@ mytheme <- bs_theme(version = 5,
                     fg = '#512888')
 
 ui <- navbarPage(title = 'Patent Analytics',
-                   theme = mytheme,
-                   tabPanel(title = 'Home',
-
-                            wellPanel(
-                              h4('Rett Was Here'),
-                              column(3,
-                                     selectInput("select", h3("Select box"),
-                                     choices = cpc$patent_id)
-                                     )
+                 theme = mytheme,
+                 tabPanel(title = 'Home',
+                          
+                          wellPanel(
+                            h4('Enter title...'),
+                            column(3,
+                                   selectInput("select", h3("Select box"),
+                                               choices = cpc$patent_id)
                             )
-                   ),
-                   tabPanel(title = 'Competitive Analysis',
-                            fluidPage(
-                              fluidRow(
-                                HTML('<p style = "padding-left: 30px; font-size: 20px;"> Competitive Positioning </p>
+                          )
+                 ),
+                 tabPanel(title = 'Competitive Analysis',
+                          fluidPage(
+                            fluidRow(
+                              HTML('<p style = "padding-left: 30px; font-size: 20px;"> Competitive Positioning </p>
                                       <br>
-                                      <p style = "padding-left: 30px;"> This page analyzes the cop pasldf </p>')
-                              ),
-                              hr(),br(),
-                              column(width = 3,
-                                     h4('Inputs'),
-                                     wellPanel(
-                                       selectInput(inputId = 'market_cpcs_input',label = 'Market CPCs',choices = unique_cpc_group, multiple = TRUE),
-                                       #selectInput(inputId = 'submarket_cpcs_input',label = 'Submarket CPCs',choices = unique_cpc_group),
-                                       textAreaInput(inputId = 'submarket_labels_input',label = 'Submarket labels (comma separated'),
-                                       actionButton(inputId = 'generate_competitive_positioning',label = 'Generate',width = '35%')
-                                     )
-                              ),
+                                      <p style = "padding-left: 30px;"> This page analyzes the competitive positioning of market CPCs. </p>')
+                            ),
+                            hr(),br(),
+                            column(width = 3,
+                                   h4('Inputs'),
+                                   wellPanel(
+                                     selectInput(inputId = 'market_cpcs_input',label = 'Market CPCs',choices = unique_cpc_group, multiple = TRUE),
+                                     #selectInput(inputId = 'submarket_cpcs_input',label = 'Submarket CPCs',choices = unique_cpc_group),
+                                     textAreaInput(inputId = 'submarket_labels_input',label = 'Submarket labels (comma separated'),
+                                     actionButton(inputId = 'generate_competitive_positioning',label = 'Generate',width = '75%')
+                                   )
+                            ),
+                            column(width = 8, offset = 1,
+                                   h4('Outputs'),
+                                   textOutput(outputId = 'text_labels_output'),
+                                   DTOutput(outputId = 'competition_dt')
+                            )
+                          )
+                 ),
+                 tabPanel(title = 'Technology Trends',
+                          fluidPage(
+                            fluidRow(
+                              HTML('<p style = "padding-left: 30px; font-size: 20px;"> Technology Trends </p>
+                                      <br>
+                                      <p style = "padding-left: 30px;"> Select inputs below to graph trends in technology. </p>')
+                            ),
+                            hr(),br(),
+                            column(width = 3,
+                                   h4('Inputs'),
+                                   wellPanel(
+                                     #selectInput(inputId = 'market_cpcs_input',label = 'Market CPCs',choices = unique_cpc_group, multiple = TRUE),
+                                     #selectInput(inputId = 'submarket_cpcs_input',label = 'Submarket CPCs',choices = unique_cpc_group),
+                                     #textAreaInput(inputId = 'submarket_labels_input',label = 'Submarket labels (comma separated'),
+                                     actionButton(inputId = 'generate_tech_trend',label = 'Generate',width = '75%')
+                                   )
+                            ),
+                            fluidRow(
                               column(width = 8, offset = 1,
-                                     h4('Outputs'),
-                                     textOutput(outputId = 'text_labels_output'),
-                                     DTOutput(outputId = 'competition_dt')
-                              )
+                                h4('Outputs'),
+                                #textOutput(outputId = 'text_labels_output'),
+                                # Try putting a plotly output here
+                                #DTOutput(outputId = 'competition_dt')
                             )
-                   ),
-                   tabPanel(title = 'Technology Trends',
-                            h4('Another test...')
-                            )
-  )
+                          )
+                 )
+)
 
 
 

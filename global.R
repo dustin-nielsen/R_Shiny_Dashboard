@@ -8,15 +8,15 @@ library(bslib)
 library(feather)
 library(DT)
 
-# setwd("C:/GitHubProjects/Strat/R_Shiny_Dashboard")
-# load('data/unique_cpc_group.Rdata')
-# assignee <- read_feather('data/g_assignee_disambiguated_2012_2021.feather')
-# location <- read_feather('data/g_location_disambiguated_2012_2021.feather')
-# patent <- read_feather('data/g_patent_2012_2021.feather')
-# cpc <- read_feather('data/g_cpc_current_2012_2021.feather')
-# cpc$patent_id <- as.character(cpc$patent_id)
-# # unique_cpc_group <- head(unique_cpc_group)
-# cpc <- head(cpc)
+#setwd("C:/GitHubProjects/Strat/R_Shiny_Dashboard")
+unique_cpc_group <- readxl::read_excel('data/unique_cpc_groups.xlsx')
+assignee <- read_feather('data/g_assignee_disambiguated_2012_2021.feather')
+location <- read_feather('data/g_location_disambiguated_2012_2021.feather')
+patent <- read_feather('data/g_patent_2012_2021.feather')
+cpc <- read_feather('data/g_cpc_current_2012_2021.feather')
+cpc$patent_id <- as.character(cpc$patent_id)
+unique_cpc_group <- head(unique_cpc_group)
+cpc <- head(cpc)
 
 # Resources
 # https://shiny.rstudio.com/
@@ -24,20 +24,6 @@ library(DT)
 # Icons https://fontawesome.com/search?o=r&m=free
 # HTML tags https://shiny.rstudio.com/articles/tag-glossary.html
 # Inputs https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/
-
-# Agenda:
-# Server
-# Reactivity
-# Reactive values
-# Inputs
-# Server logic
-# Rendering outputs
-# Displaying in UI
-# Observers
-# Debugging - browser()
-# Work together in class:
-# Add code from competetive positioning assignemnt to make your app interactive
-
 
 
 
