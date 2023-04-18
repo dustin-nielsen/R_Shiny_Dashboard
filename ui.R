@@ -389,6 +389,8 @@ ui <- navbarPage(title = 'Patent Analytics',
                                 #DTOutput(outputId = 'competition_dt')
                             )
                           )
+                        )
+                 )
                  )
 )
 
