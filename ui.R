@@ -10,11 +10,12 @@ ui <- navbarPage(title = 'Patent Analytics',
                             wellPanel(
                               h4('Patent Analytics')
                             )
-                   ),
-                   tabPanel(title = 'Competitive Analysis',
-                            fluidPage(
-                              fluidRow(
-                                HTML('<p style = "padding-left: 30px; font-size: 20px;"> Competitive Positioning </p>
+                          )
+                 ),
+                 tabPanel(title = 'Competitive Analysis',
+                          fluidPage(
+                            fluidRow(
+                              HTML('<p style = "padding-left: 30px; font-size: 20px;"> Competitive Positioning </p>
                                       <br>
                                       <p style = "padding-left: 30px;"> This page analyzes the market cpc to find trends </p>')
                               ),
@@ -45,5 +46,8 @@ ui <- navbarPage(title = 'Patent Analytics',
                             h4('Another test...'),
                             DTOutput(outputId = 'competition_sub_seg')
                             )
-  )
+                        )
+                 )
+    
+)
 

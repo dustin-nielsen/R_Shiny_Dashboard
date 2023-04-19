@@ -144,7 +144,12 @@ server <- function(input,output,session) {
     output$competition_plot <- renderPlotly({
       competition$plot
     })
+
+  observeEvent(input$generate_tech_trend,{  
+    output$chart_tech_trends <- renderPlotly({
+        plot_ly(competition$dt, x = ~patent_date, y = ~num_claims)
+    })
+  })
   })
 
 }
-
